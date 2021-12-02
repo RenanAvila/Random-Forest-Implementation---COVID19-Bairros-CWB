@@ -20,7 +20,7 @@ y = data['Risco Propagação']
 Xtr, Xval, ytr, yval = train_test_split(X, y, test_size=0.3)
 
 #Aplicando Random Forest Classification
-arvores = ensemble.RandomForestClassifier(n_estimators=17)
+arvores = ensemble.RandomForestClassifier(n_estimators=21,max_depth=40,min_samples_leaf=3,random_state=10)
 arvores.fit(Xtr, ytr)
 y_prev= arvores.predict(Xval)
 
@@ -47,4 +47,6 @@ plt.ylabel('Features')
 plt.title("Visualizing Important Features")
 plt.legend()
 plt.show()
+
+
 
